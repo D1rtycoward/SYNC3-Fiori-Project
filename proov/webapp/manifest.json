@@ -1,0 +1,154 @@
+{
+    "_version": "1.48.0",
+    "sap.app": {
+        "id": "proov",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:ovp",
+            "version": "1.11.2",
+            "toolsId": "b4f7849d-24e3-4eca-a82e-a55c98068411"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/Z03SE_GW_PP03_SRV/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "annotation"
+                    ],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "annotation": {
+                "type": "ODataAnnotation",
+                "uri": "annotations/annotation.xml",
+                "settings": {
+                    "localUri": "annotations/annotation.xml"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.108.18",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ushell": {},
+                "sap.f": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ovp": {},
+                "sap.ui.rta": {},
+                "sap.ui.layout": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "proov.i18n.i18n"
+                }
+            },
+            "mainModel": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            }
+        },
+        "resources": {
+            "css": []
+        },
+        "routing": {
+            "config": {},
+            "routes": [],
+            "targets": {}
+        }
+    },
+    "sap.ovp": {
+        "globalFilterModel": "mainModel",
+        "globalFilterEntityType": "Z03SE_PPT_ORD",
+        "containerLayout": "resizable",
+        "cards": {
+            "card01": {
+                "template": "sap.ovp.cards.charts.analytical",
+                "settings": {
+                    "title": "도넛차트",
+                    "entitySet": "Z03SE_PPT_ORDSet",
+                    "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#ZDPQ",
+                    "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#zPVQ",
+                    "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#ZAC",
+                    "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification",
+                    "subTitle": "생산오더",
+                    "category": "생산오더1"
+                },
+                "model": "mainModel"
+            },
+            "card02": {
+                "template": "sap.ovp.cards.table",
+                "model": "mainModel",
+                "settings": {
+                    "title": "자재 창고",
+                    "entitySet": "Z03SE_PPT_WRHOUSSet",
+                    "sortOrder": "ascending",
+                    "sortBy": "BatchNum",
+                    "tabs": [
+                        {
+                            "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#ZQ2",
+                            "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#ZSVQ2",
+                            "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#ZDQ2",
+                            "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification"
+                        }
+                    ]
+                }
+            }
+        },
+        "considerAnalyticalParameters": false,
+        "chartSettings": {}
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "analytical"
+    }
+}

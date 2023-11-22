@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="Z03SE_GW_PP03_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="Z03SE_PPT_ORD" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OrdNum"/>
+                </Key>
+                <Property Name="OrdNum" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="생산 오더 번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MtCod" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="자재코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OrdSt" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="생산 진행 상태" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReqDt" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="생산 요청 일자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CompDt" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="생산 완료 일자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Outtrn" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:unicode="false" sap:unit="Quanunit" sap:label="생산 수량" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Quanunit" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="Manager" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="직원명" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Z03SE_PPT_WRHOUS" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProNum"/>
+                    <PropertyRef Name="Quality"/>
+                </Key>
+                <Property Name="ProNum" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="생산 번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Quality" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="품질" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BatchNum" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="배치번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Mt_Cod" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="자재코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Inventory" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:unicode="false" sap:unit="Iunit" sap:label="재고량" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Iunit" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="ProDt" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="생산 날짜" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ExDt" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="유통 기한" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DelFlag" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="삭제 플래그" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Z03SE_PPT_ENV" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OrdNum"/>
+                    <PropertyRef Name="FarmDt"/>
+                </Key>
+                <Property Name="OrdNum" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="생산 오더 번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FarmDt" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="재배시작일자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MtCod" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="자재코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MsrDt" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="측정일자" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Tem" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:unicode="false" sap:unit="Temunit" sap:label="온도" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Temunit" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="Hum" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:unicode="false" sap:unit="Humunit" sap:label="습도" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Humunit" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="Co2" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:unicode="false" sap:unit="Co2unit" sap:label="CO2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Co2unit" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+            </EntityType>
+            <EntityType Name="Z03SE_PPT_BOM" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Production"/>
+                    <PropertyRef Name="ReqMt"/>
+                </Key>
+                <Property Name="Production" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="자재코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReqMt" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="자재코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Quan" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:unicode="false" sap:unit="Unit" sap:label="수량" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Unit" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="Proquan" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="2" sap:unicode="false" sap:unit="Prounit" sap:label="생산수량" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Prounit" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="Choolgo" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="입출고 관리" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="Z03SE_GW_PP03_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="Z03SE_PPT_ORDSet" EntityType="Z03SE_GW_PP03_SRV.Z03SE_PPT_ORD" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="Z03SE_PPT_WRHOUSSet" EntityType="Z03SE_GW_PP03_SRV.Z03SE_PPT_WRHOUS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="Z03SE_PPT_ENVSet" EntityType="Z03SE_GW_PP03_SRV.Z03SE_PPT_ENV" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="Z03SE_PPT_BOMSet" EntityType="Z03SE_GW_PP03_SRV.Z03SE_PPT_BOM" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="http://saphana01.konyang.ac.kr:8080/sap/opu/odata/sap/Z03SE_GW_PP03_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://saphana01.konyang.ac.kr:8080/sap/opu/odata/sap/Z03SE_GW_PP03_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

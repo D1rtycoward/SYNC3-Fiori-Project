@@ -1,0 +1,17 @@
+<mvc:View xmlns:cards="sap.f.cards" xmlns:layout="sap.ui.layout" xmlns:f="sap.f" controllerName="test01.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <f:DynamicPageHeader >
+        <Title text="Test"></Title>
+    </f:DynamicPageHeader>
+    <layout:Grid >
+        <f:Card >
+            <f:header>
+                <cards:Header title="title"></cards:Header>
+            </f:header>
+            <f:content>
+                <Text text="asd"></Text>
+            </f:content>
+        </f:Card>
+    </layout:Grid>
+</mvc:View>

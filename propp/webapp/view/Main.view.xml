@@ -1,0 +1,106 @@
+<mvc:View controllerName="propp.controller.Main" 
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.data="sap.viz.ui5.data" xmlns:feeds="sap.viz.ui5.controls.common.feeds" xmlns:cards="sap.f.cards" xmlns:layout="sap.ui.layout" xmlns:f="sap.f" 
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page >
+    <f:DynamicPageHeader >
+        <Title text="Test"></Title>
+    </f:DynamicPageHeader>
+    <layout:Grid>
+        <f:Card class="sapUiSmallMargin">
+            <f:header>
+                <cards:Header title="title"></cards:Header>
+            </f:header>
+            <f:content>
+            
+                <viz:VizFrame
+                        vizType="pie"
+                        width="600px"
+                        >
+                    <viz:dataset>
+                        <viz.data:FlattenedDataset  data="{/Z03SE_PPT_ORDSet}">
+                            <viz.data:dimensions>
+                                <viz.data:DimensionDefinition name="MtCod" value="{MtCod}"/>
+                            </viz.data:dimensions>
+
+                            <viz.data:measures>
+                                <viz.data:MeasureDefinition name="Outtrn" value="{Outtrn}"/>
+                            </viz.data:measures>
+                        </viz.data:FlattenedDataset>
+                    </viz:dataset>
+                    <viz:feeds>
+                        <feeds:FeedItem uid="color" values="MtCod" type="Dimension"/>
+                        <feeds:FeedItem uid="size" values="Outtrn" type="Measure" />
+                    </viz:feeds>
+                </viz:VizFrame>
+            </f:content>
+        </f:Card>
+        <f:Card class="sapUiSmallMargin" width="300%">
+            <f:header>
+                <cards:Header title="title"></cards:Header>
+            </f:header>
+            <f:content>
+            <Table 
+                    mode="SingleSelectMaster"
+                    inset="false"
+                    items="{
+                        path: '/Z03SE_PPT_WRHOUSSet'
+                    }"
+                    growing="true"
+                    growingThreshold="5"> 
+                    <columns>
+                        <Column>
+                            <Text text="생산번호" />
+                        </Column>
+                        <Column>
+                            <Text text="품질" />
+                        </Column>
+                        <Column>
+                            <Text text="배치번호" />
+                        </Column>
+                        <Column>
+                            <Text text="자재코드" />
+                        </Column>
+                        <Column>
+                            <Text text="재고량" />
+                        </Column>
+                        <Column>
+                            <Text text="단위" />
+                        </Column>
+                        <Column>
+                            <Text text="생산날짜" />
+                        </Column>
+                        <Column>
+                            <Text text="유통기한" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem vAlign="Middle">
+                            <cells>
+                                <Text
+                                    text="{ProNum}" />
+                                <Text
+                                    text="{Quality}" />
+                                <Text
+                                    text="{BatchNum}" />
+                                <Text
+                                    text="{Mt_Cod}" />
+                                <Text
+                                    text="{Inventory}" />
+                                <Text
+                                    text="{Iunit}" />
+                                <Text
+                                    text="{ProDt}" />
+                                <Text
+                                    text="{ExDt}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </f:content>
+                
+        </f:Card>
+    </layout:Grid>
+    </Page>
+</mvc:View>
