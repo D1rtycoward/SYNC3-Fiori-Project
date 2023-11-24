@@ -1,7 +1,7 @@
 {
     "_version": "1.48.0",
     "sap.app": {
-        "id": "proov",
+        "id": "testov",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "applicationVersion": {
@@ -13,7 +13,7 @@
         "sourceTemplate": {
             "id": "@sap/generator-fiori:ovp",
             "version": "1.11.2",
-            "toolsId": "b4f7849d-24e3-4eca-a82e-a55c98068411"
+            "toolsId": "bf4fa764-0964-465f-802d-e6582f3dcc5d"
         },
         "dataSources": {
             "mainService": {
@@ -77,7 +77,7 @@
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
-                    "bundleName": "proov.i18n.i18n"
+                    "bundleName": "testov.i18n.i18n"
                 }
             },
             "mainModel": {
@@ -108,57 +108,24 @@
     },
     "sap.ovp": {
         "globalFilterModel": "mainModel",
-        "globalFilterEntityType": "Z03SE_PPT_ORD",
+        "globalFilterEntityType": "ZSE_PP_FWRHOUS",
         "containerLayout": "resizable",
+        "enableLiveFilter": true,
+        "considerAnalyticalParameters": false,
         "cards": {
             "card01": {
-                "template": "sap.ovp.cards.charts.analytical",
-                "settings": {
-                    "title": "도넛차트",
-                    "entitySet": "Z03SE_PPT_ORDSet",
-                    "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#ZDPQ",
-                    "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#zPVQ",
-                    "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#ZAC",
-                    "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification",
-                    "subTitle": "생산오더",
-                    "category": "생산오더1"
-                },
-                "model": "mainModel"
-            },
-            "card02": {
                 "template": "sap.ovp.cards.table",
                 "model": "mainModel",
                 "settings": {
-                    "title": "자재 창고",
-                    "entitySet": "Z03SE_PPT_WRHOUSSet",
+                    "title": "제품 재고 목록",
+                    "entitySet": "ZSE_PP_FWRHOUSSet",
                     "sortOrder": "ascending",
-                    "sortBy": "BatchNum",
-                    "tabs": [
-                        {
-                            "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#ZQ2",
-                            "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#ZSVQ2",
-                            "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#ZDQ2",
-                            "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification"
-                        }
-                    ]
-                }
-            },
-            "REPLACE_WITH_CARD_ID": {
-                "template": "sap.ovp.cards.stack",
-                "model": "mainModel",
-                "settings": {
-                    "title": "리스트카드",
-                    "entitySet": "Z03SE_PPT_WRHOUSSet",
-                    "subTitle": "제품창고",
-                    "itemText": "아이템 텍스트",
-                    "objectStreamCardsSettings": {
-                        "showFirstActionInFooter": false
-                    }
+                    "sortBy": "Mtycod",
+                    "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#ZQ01",
+                    "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#ZDPQ01"
                 }
             }
-        },
-        "considerAnalyticalParameters": false,
-        "chartSettings": {}
+        }
     },
     "sap.fiori": {
         "registrationIds": [],

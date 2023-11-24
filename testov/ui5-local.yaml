@@ -2,7 +2,7 @@
 
 specVersion: "3.1"
 metadata:
-  name: proov
+  name: testov
 type: application
 framework:
   name: SAPUI5
@@ -32,7 +32,7 @@ server:
       configuration:
         ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
         backend:
-          - path: /sap/opu/odata/sap/Z03SE_GW_PP03_SRV/
+          - path: /sap
             url: http://saphana01.konyang.ac.kr:8080/
             client: '400'
     - name: sap-fe-mockserver
@@ -48,5 +48,5 @@ server:
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: proov
+        component: testov
         ui5Theme: sap_horizon

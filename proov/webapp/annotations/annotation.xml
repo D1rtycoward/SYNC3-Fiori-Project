@@ -45,23 +45,6 @@
                         </PropertyValue>
                     </Record>
                 </Annotation>
-                <Annotation Term="UI.PresentationVariant" Qualifier="zPVQ">
-                    <Record>
-                        <PropertyValue Property="Visualizations">
-                            <Collection>
-                                <AnnotationPath>@UI.Chart#ZAC1</AnnotationPath>
-                            </Collection>
-                        </PropertyValue>
-                        <PropertyValue Property="SortOrder">
-                            <Collection>
-                                <Record Type="Common.SortOrderType">
-                                    <PropertyValue Property="Property" PropertyPath="MtCod"/>
-                                    <PropertyValue Property="Descending" Bool="true"/>
-                                </Record>
-                            </Collection>
-                        </PropertyValue>
-                    </Record>
-                </Annotation>
             </Annotations>
             <Annotations Target="Z03SE_GW_PP03_SRV.Z03SE_PPT_WRHOUS">
                 <Annotation Term="UI.Identification">
@@ -71,6 +54,10 @@
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="ProNum"/>
+                        </Record>
+                        <Record Type="UI.DataFieldForIntentBasedNavigation">
+                            <PropertyValue Property="SemanticObject" String="MtCod"/>
+                            <PropertyValue Property="Label" String="자재코드"/>
                         </Record>
                     </Collection>
                 </Annotation>
@@ -102,6 +89,42 @@
                             </Collection>
                         </PropertyValue>
                     </Record>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="WRHOUS TYPE"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="Mt_Cod"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="Inventory"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="ZQ03">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Label" String="제품창고 리스트"/>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Mt_Cod"/>
+                                    <PropertyValue Property="Label" String="제품코드"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#ZQ03"/>
+                            <Annotation Term="UI.IsSummary" Bool="true"/>
+                        </Record>
+                    </Collection>
                 </Annotation>
             </Annotations>
         </Schema>

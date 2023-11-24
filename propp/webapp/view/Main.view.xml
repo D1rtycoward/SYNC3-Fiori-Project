@@ -45,7 +45,7 @@
                     mode="SingleSelectMaster"
                     inset="false"
                     items="{
-                        path: '/Z03SE_PPT_WRHOUSSet'
+                        path: '/ZSE_PP_FWRHOUSSet'
                     }"
                     growing="true"
                     growingThreshold="5"> 
@@ -63,6 +63,9 @@
                             <Text text="자재코드" />
                         </Column>
                         <Column>
+                            <Text text="자재명" />
+                        </Column>
+                        <Column>
                             <Text text="재고량" />
                         </Column>
                         <Column>
@@ -74,26 +77,33 @@
                         <Column>
                             <Text text="유통기한" />
                         </Column>
+                        <Column>
+                            <Text text="제품종류" />
+                        </Column>
                     </columns>
                     <items>
                         <ColumnListItem vAlign="Middle">
                             <cells>
                                 <Text
-                                    text="{ProNum}" />
+                                    text="{Pronum}" />
                                 <Text
                                     text="{Quality}" />
                                 <Text
-                                    text="{BatchNum}" />
+                                    text="{Batchnum}" />
                                 <Text
-                                    text="{Mt_Cod}" />
+                                    text="{Mtcod}" />
+                                    <Text
+                                    text="{Mtname}" />
                                 <Text
                                     text="{Inventory}" />
                                 <Text
                                     text="{Iunit}" />
                                 <Text
-                                    text="{ProDt}" />
+                                    text="{Prodt}" />
                                 <Text
-                                    text="{ExDt}" />
+                                    text="{Exdt}" />
+                                    <Text
+                                    text="{Mtycod}" />
                             </cells>
                         </ColumnListItem>
                     </items>
